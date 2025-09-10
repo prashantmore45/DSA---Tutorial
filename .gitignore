@@ -1,0 +1,16 @@
+# Ignore C++ build files
+*.exe
+*.out
+*.o
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore editor settings
+.vscode/
+*.swp
+
+# Ignore other OS junk files
+.DS_Store
+Thumbs.db
