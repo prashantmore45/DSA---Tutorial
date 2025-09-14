@@ -7,6 +7,11 @@ This repo contains my DSA practice in **C++**, organized by topics.
 2. Variables and Data Types ✅  
 3. Operators ✅
 4. Conditional Statements ✅ 
+5. Loops ✅  
+   - for loop  
+   - while loop  
+   - do-while loop  
+   - nested loops
 
 ## ⚡ Languages
 - C++   
@@ -16,4 +21,5 @@ This repo contains my DSA practice in **C++**, organized by topics.
 - `Added Variables and Data Types`
 - `Added Operators`
 - `Added Conditional Statements`
+- `Added Loops`
 
