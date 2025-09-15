@@ -12,6 +12,12 @@ This repo contains my DSA practice in **C++**, organized by topics.
    - while loop  
    - do-while loop  
    - nested loops
+6. Patterns ✅  
+   - Square  
+   - Right-Angled Triangle  
+   - Pyramid  
+   - Inverted Triangle  
+   - Diamond
 
 ## ⚡ Languages
 - C++   
@@ -22,4 +28,4 @@ This repo contains my DSA practice in **C++**, organized by topics.
 - `Added Operators`
 - `Added Conditional Statements`
 - `Added Loops`
-
+- `Added Patterns`
