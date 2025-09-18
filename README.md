@@ -18,6 +18,12 @@ This repo contains my DSA practice in **C++**, organized by topics.
    - Pyramid  
    - Inverted Triangle  
    - Diamond
+7. Functions ✅  
+   - Basic functions  
+   - Function with parameters  
+   - Function returning value  
+   - Function overloading  
+   - Default arguments
 
 ## ⚡ Languages
 - C++   
@@ -29,3 +35,4 @@ This repo contains my DSA practice in **C++**, organized by topics.
 - `Added Conditional Statements`
 - `Added Loops`
 - `Added Patterns`
+- `Added Functions`
