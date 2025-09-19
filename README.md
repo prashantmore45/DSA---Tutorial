@@ -24,6 +24,9 @@ This repo contains my DSA practice in **C++**, organized by topics.
    - Function returning value  
    - Function overloading  
    - Default arguments
+8. Binary Number System ✅  
+   - Decimal to Binary  
+   - Binary to Decimal  
 
 ## ⚡ Languages
 - C++   
@@ -36,3 +39,4 @@ This repo contains my DSA practice in **C++**, organized by topics.
 - `Added Loops`
 - `Added Patterns`
 - `Added Functions`
+- `Added Binary Number System`
