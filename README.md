@@ -27,11 +27,19 @@ This repo contains my DSA practice in **C++**, organized by topics.
 8. Binary Number System ✅  
    - Decimal to Binary  
    - Binary to Decimal  
+9. Pointers ✅  
+   - Basics & Declaration  
+   - Pointer Arithmetic  
+   - Pointer to Pointer  
+   - Pointers with Arrays  
+   - Pointers with Functions  
+   - Null & Wild Pointers
 
 ## ⚡ Languages
 - C++   
 - Python (coming soon) ⏳
 - Java (coming soon) ⏳
+
 ## 📝 Commit Style
 - `Added Variables and Data Types`
 - `Added Operators`

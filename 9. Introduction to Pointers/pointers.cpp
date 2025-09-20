@@ -1,0 +1,17 @@
+/* int &ptr = &a;
+   float * ptr = &a;
+   char* ptr = &a;
+   int** ptr2 = &ptr;
+*/
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int a = 10;
+    int *ptr = &a;
+    cout << &a << " = " << ptr << endl;
+
+    return 0;
+}
