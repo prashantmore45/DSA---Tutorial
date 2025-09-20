@@ -48,3 +48,4 @@ This repo contains my DSA practice in **C++**, organized by topics.
 - `Added Patterns`
 - `Added Functions`
 - `Added Binary Number System`
+- `Added Pointers`
