@@ -34,6 +34,7 @@ This repo contains my DSA practice in **C++**, organized by topics.
    - Pointers with Arrays  
    - Pointers with Functions  
    - Null & Wild Pointers
+10. Arrays (Part 01) ✅ 
 
 ## ⚡ Languages
 - C++   
@@ -49,3 +50,4 @@ This repo contains my DSA practice in **C++**, organized by topics.
 - `Added Functions`
 - `Added Binary Number System`
 - `Added Pointers`
+- `Added Array (Part 01)`
