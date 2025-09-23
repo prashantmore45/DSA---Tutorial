@@ -36,6 +36,10 @@ This repo contains my DSA practice in **C++**, organized by topics.
    - Null & Wild Pointers
 10. Arrays (Part 01) ✅ 
 11. Arrays (Part 02) ✅
+12. Basic Sorting Algorithms ✅  
+    - Bubble Sort  
+    - Selection Sort  
+    - Insertion Sort
 
 ## ⚡ Languages
 - C++   
@@ -53,3 +57,4 @@ This repo contains my DSA practice in **C++**, organized by topics.
 - `Added Pointers`
 - `Added Array (Part 01)`
 - `Added Array (Part 02)`
+- `Added Basic Sorting Algorithms`
