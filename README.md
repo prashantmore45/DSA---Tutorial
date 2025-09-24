@@ -40,6 +40,7 @@ This repo contains my DSA practice in **C++**, organized by topics.
     - Bubble Sort  
     - Selection Sort  
     - Insertion Sort
+12. 2D Arrays ✅
 
 ## ⚡ Languages
 - C++   
@@ -58,3 +59,4 @@ This repo contains my DSA practice in **C++**, organized by topics.
 - `Added Array (Part 01)`
 - `Added Array (Part 02)`
 - `Added Basic Sorting Algorithms`
+- `Added 2D Array`
