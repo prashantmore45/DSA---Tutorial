@@ -41,7 +41,8 @@ This repo contains my DSA practice in **C++**, organized by topics.
     - Selection Sort  
     - Insertion Sort
 13. 2D Arrays ✅
-14. Character Array and String
+14. Character Array and String  ✅
+15. Vectors  ✅
 
 ## ⚡ Languages
 - C++   
@@ -62,3 +63,4 @@ This repo contains my DSA practice in **C++**, organized by topics.
 - `Added Basic Sorting Algorithms`
 - `Added 2D Array`
 - `Added Character Array and String`
+- `Added Vectors`
