@@ -1,0 +1,18 @@
+//Print Nth Fibonacci Number
+
+#include<iostream>
+using namespace std;
+
+int fibonacci(int n) {
+    if (n == 0 || n == 1) {
+        return n; //0, 1
+    }
+    return n = fibonacci(n-1) + fibonacci(n-2);
+}
+
+int main() {
+    int ans = fibonacci(5);
+    cout << ans << endl;
+
+    return 0;
+}
