@@ -15,15 +15,15 @@ int search(int arr[], int si, int ei, int target) {
 
     if (arr[si] <= arr[mid]) { //L1
         if (arr[si] <= target && target <= arr[mid]) {
-            search(arr, si, mid-1, target); //left half
+            return search(arr, si, mid-1, target); //left half
         } else {
-            search(arr, mid+1, ei, target); //right half
+            return search(arr, mid+1, ei, target); //right half
         }
     } else { //L2
         if (arr[mid] <= target && target <= arr[ei]) {
-            search(arr, mid+1, ei, target); //right half
+            return search(arr, mid+1, ei, target); //right half
         } else {
-            search(arr, si, mid-1, target); //left half
+            return search(arr, si, mid-1, target); //left half
         }
     }
 }
