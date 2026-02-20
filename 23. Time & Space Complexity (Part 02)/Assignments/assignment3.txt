@@ -1,0 +1,9 @@
+Q(c). Algorithm A and B have a worst-case running time of O(n) and O(logn), respectively.
+Therefore, algorithm B always runs faster than algorithm A.
+
+A. True
+B. False
+
+Answer = Option B. -> false
+The Big-O notation provides an asymptotic comparison in the running time of
+algorithms. For n < n0, algorithm A might run faster than algorithm B, for instance.
