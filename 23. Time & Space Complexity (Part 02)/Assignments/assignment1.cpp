@@ -8,7 +8,12 @@ for (i = n / 2; i <= n; i++) {
     }
 }
 
-Answer : The time complexity of the given code is O(n log n).
+A. O(n)
+B. O(N log N)
+C. O(n^2)
+D. O(n^2Logn)
+
+Answer: B. O(N log N)
 
 Explanation:
 1. The outer loop runs from i = n/2 to n, which means it runs approximately n/2 times. This contributes O(n) to the time complexity.
