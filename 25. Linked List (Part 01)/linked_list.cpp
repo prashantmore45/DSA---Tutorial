@@ -167,6 +167,41 @@ public:
 
         head = prev;
     }
+
+    int getSize() {
+        Node* temp = head;
+        int sz = 0;
+
+        while (temp != NULL) {
+            temp = temp->next;
+            sz++;
+        }
+
+        return sz;
+    }
+
+    void removeNth(int n) {
+        int size = getSize();
+
+        if (n <= 0 || n > size) return;
+
+        if (n == size) {
+            Node* toDel = head;
+            head = head->next;
+            delete toDel;
+            return;
+        }
+
+        Node* prev = head;
+
+        for (int i = 0; i < size - n - 1; i++) {
+            prev = prev->next;
+        }
+
+        Node* toDel = prev->next;
+        prev->next = toDel->next;
+        delete toDel;
+    }
 };
 
 int main() {
@@ -197,6 +232,9 @@ int main() {
 
     LL.reverse(); 
     LL.printList(); // 4 -> 3 -> 100 -> 2 -> NULL
+
+    LL.removeNth(2);
+    LL.printList(); // 4 -> 3 -> 2 -> NULL
 
     return 0;
 }
