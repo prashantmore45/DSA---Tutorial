@@ -12,13 +12,13 @@ public:
         next = NULL;
     }
 
-    ~Node() {
-        cout << "~Node " << data << endl;
-        if (next != NULL) {
-            delete next;
-            next = NULL;
-        }
-    }
+    // ~Node() {
+    //     cout << "~Node " << data << endl;
+    //     if (next != NULL) {
+    //         delete next;
+    //         next = NULL;
+    //     }
+    // }
 };
 
 class List {
@@ -31,13 +31,13 @@ public:
         tail = NULL;
     }
 
-    ~List() {
-        cout << "~List\n";
-        if (head != NULL) {
-            delete head;
-            head = NULL;
-        }
-    }
+    // ~List() {
+    //     cout << "~List\n";
+    //     if (head != NULL) {
+    //         delete head;
+    //         head = NULL;
+    //     }
+    // }
 
     void push_front(int val) {
         Node* newNode = new Node(val);
@@ -88,6 +88,19 @@ public:
         newNode->next = temp->next;
         temp->next = newNode;
     }
+
+    void pop_front() {
+        if (head == NULL) {
+            cout << "LL is Empty\n";
+            return;
+        }
+
+        Node* temp = head;
+        head = head->next;
+
+        temp->next = NULL;
+        delete temp;
+    }
 };
 
 int main() {
@@ -106,6 +119,9 @@ int main() {
 
     LL.insert(100, 2);
     LL.printList(); // 1 -> 2 -> 100 -> 3 -> 4 -> 5 -> NULL
+
+    LL.pop_front();
+    LL.printList(); // 2 -> 100 -> 3 -> 4 -> 5 -> NULL
 
     return 0;
 }
