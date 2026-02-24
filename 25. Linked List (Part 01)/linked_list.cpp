@@ -33,6 +33,17 @@ public:
             head = newNode;
         }
     }
+
+    void push_back(int val) {
+        Node* newNode = new Node(val);
+
+        if (head == NULL) {
+            head = tail = newNode;
+        } else {
+            tail->next = newNode;
+            tail = newNode;
+        }
+    }
 };
 
 int main() {
@@ -40,8 +51,12 @@ int main() {
 
     LL.push_front(3);
     LL.push_front(2);
-    LL.push_front(1);
-
+    LL.push_front(1); 
     // 1->2->3->NULL
+
+    LL.push_back(4);
+    LL.push_back(5); 
+    // 1->2->3->4->5->NULL
+
     return 0;
 }
