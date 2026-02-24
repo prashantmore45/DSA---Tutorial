@@ -101,6 +101,18 @@ public:
         temp->next = NULL;
         delete temp;
     }
+
+    void pop_back() {
+        Node* temp = head;
+
+        while (temp->next->next != NULL) {
+            temp = temp->next;
+        }
+
+        temp->next = NULL; // temp = tail's prev
+        delete tail;
+        tail = temp;
+    }
 };
 
 int main() {
@@ -122,6 +134,9 @@ int main() {
 
     LL.pop_front();
     LL.printList(); // 2 -> 100 -> 3 -> 4 -> 5 -> NULL
+
+    LL.pop_back();
+    LL.printList(); // 2 -> 100 -> 3 -> 4 -> NULL
 
     return 0;
 }
