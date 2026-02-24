@@ -11,6 +11,14 @@ public:
         data = val;
         next = NULL;
     }
+
+    ~Node() {
+        cout << "~Node " << data << endl;
+        if (next != NULL) {
+            delete next;
+            next = NULL;
+        }
+    }
 };
 
 class List {
@@ -21,6 +29,14 @@ public:
     List() {
         head = NULL;
         tail = NULL;
+    }
+
+    ~List() {
+        cout << "~List\n";
+        if (head != NULL) {
+            delete head;
+            head = NULL;
+        }
     }
 
     void push_front(int val) {
@@ -59,7 +75,7 @@ public:
         Node* newNode = new Node(val);
 
         Node* temp = head;
-        
+
         for (int i=0; i<pos-1; i++) {
             if (temp == NULL) {
                 cout << "position is INVALID!\n";
