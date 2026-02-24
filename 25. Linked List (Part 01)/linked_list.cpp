@@ -113,6 +113,20 @@ public:
         delete tail;
         tail = temp;
     }
+
+    int searchItr(int key) {
+        Node* temp = head;
+        int idx = 0;
+
+        while (temp != NULL) {
+            if (temp->data == key) {
+                return idx;
+            }
+            temp = temp->next;
+            idx++;
+        }
+        return -1;
+    }
 };
 
 int main() {
@@ -137,6 +151,8 @@ int main() {
 
     LL.pop_back();
     LL.printList(); // 2 -> 100 -> 3 -> 4 -> NULL
+
+    cout << LL.searchItr(3) << endl;
 
     return 0;
 }
