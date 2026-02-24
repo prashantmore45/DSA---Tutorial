@@ -127,6 +127,29 @@ public:
         }
         return -1;
     }
+
+    int helper(Node* h, int key) {
+        //base case 
+        if (h == NULL) {
+            return -1;
+        }
+
+        if (h->data == key) {
+            return 0;
+        }
+
+        int idx = helper(h->next, key);
+
+        if (idx == -1) {
+            return -1;
+        }
+
+        return idx+1;
+    }
+
+    int searchRec(int key) {
+        return helper(head, key);
+    }
 };
 
 int main() {
@@ -152,7 +175,8 @@ int main() {
     LL.pop_back();
     LL.printList(); // 2 -> 100 -> 3 -> 4 -> NULL
 
-    cout << LL.searchItr(3) << endl;
+    cout << LL.searchItr(3) << endl; //2
+    cout << LL.searchRec(100) << endl; //1
 
     return 0;
 }
