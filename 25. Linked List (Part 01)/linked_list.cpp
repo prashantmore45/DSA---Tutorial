@@ -44,6 +44,16 @@ public:
             tail = newNode;
         }
     }
+
+    void printList() {
+        Node* temp = head;
+
+        while (temp != NULL) {
+            cout << temp->data << " -> ";
+            temp = temp->next;
+        }
+        cout << "NULL\n";        
+    }
 };
 
 int main() {
@@ -57,6 +67,8 @@ int main() {
     LL.push_back(4);
     LL.push_back(5); 
     // 1->2->3->4->5->NULL
+
+    LL.printList(); // 1 -> 2 -> 3 -> 4 -> 5 -> NULL
 
     return 0;
 }
