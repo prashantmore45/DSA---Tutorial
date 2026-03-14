@@ -1,4 +1,5 @@
 #include<iostream>
+//#include<stack>
 using namespace std;
 
 template<class T>
@@ -54,6 +55,7 @@ public:
 
 int main() {
     Stack<int> s;
+    // stack<int> s; // Stack in STL : to use this #include <stack> header library at top   
     s.push(3);
     s.push(2);
     s.push(1);
