@@ -19,7 +19,7 @@ static int idx = -1;
 
 Node* buildTree(vector<int> nodes) {
     idx++;
-
+    
     if (nodes[idx] == -1) {
         return NULL;
     }
@@ -38,20 +38,28 @@ void levelOrderTraversal(Node* root) {
 
     queue<Node*> Q;
     Q.push(root);
-    //Q.push(NULL);
+    Q.push(NULL);
 
     while(!Q.empty()) {
         Node* curr = Q.front();
         Q.pop();
 
-        cout << curr->data << " ";
+        if (curr == NULL) {
+            cout << endl;
+            if (Q.empty()) {
+                break;
+            }
+            Q.push(NULL); //to track next line
+        } else {
+            cout << curr->data << " ";
 
-        if (curr->left != NULL) {
-            Q.push(curr->left);
-        }
+            if (curr->left != NULL) {
+                Q.push(curr->left);
+            }
 
-        if (curr->right != NULL) {
-            Q.push(curr->right);
+            if (curr->right != NULL) {
+                Q.push(curr->right);
+            }
         }
     }
 }
