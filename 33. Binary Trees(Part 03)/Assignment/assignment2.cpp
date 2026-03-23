@@ -57,7 +57,7 @@ void preorder(Node* root) {
     preorder(root->right);
 }
 
-Node* invertedTree(Node* &root) {
+Node* invertedTree(Node* root) {
     if (root == NULL) {
         return NULL;
     }
