@@ -55,6 +55,7 @@ bool rootToNodePath(Node* root, int n, vector<int> &path) {
     return false;
 }
 
+//approach1
 int LCA(Node* root, int n1, int n2) {
     vector<int> path1;
     vector<int> path2;
@@ -69,6 +70,28 @@ int LCA(Node* root, int n1, int n2) {
         }
         lca = path1[i];
     }
+
+    return lca;
+}
+
+//approach 2
+Node* LCA2(Node* root, int n1, int n2) {
+    if (root == NULL) {
+        return NULL;
+    }
+
+    if (root->data == n1 || root->data == n2) {
+        return root;
+    }
+
+    Node* leftLCA = LCA2(root->left, n1, n2);
+    Node* rightLCA = LCA2(root->right, n1, n2);
+
+    if (leftLCA != NULL && rightLCA != NULL) {
+        return root;
+    }
+
+    return leftLCA == NULL ? rightLCA : leftLCA;
 }
 
 int main() {
@@ -78,5 +101,6 @@ int main() {
     int n2 = 5;
 
     cout << "lca = " << LCA(root, n1, n2) << endl;
+    cout << "lca = " << LCA2(root, n1, n2)->data << endl;
     return 0;
 }
