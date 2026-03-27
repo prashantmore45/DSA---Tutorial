@@ -21,8 +21,40 @@ public:
         }
     }
 
-    void pop() {
+    void heapify(int i) {
+        if (i >= vec.size()) {
+            return;
+        }
 
+        int l = 2 * i + 1;
+        int r = 2 * i + 2;
+
+        int maxIdx = i;
+
+        if (l < vec.size() && vec[l] > vec[maxIdx]) {
+            maxIdx = l;  
+        }
+
+        if (r < vec.size() && vec[r] > vec[maxIdx]) {
+            maxIdx = r;
+        }
+
+        swap(vec[i], vec[maxIdx]);
+
+        if (maxIdx != i) {  //swaping with child node
+            heapify(maxIdx);
+        }
+    }
+
+    void pop() {
+        //step1: swap top element with last element
+        swap(vec[0], vec[vec.size()-1]);
+
+        //step2: remove last element
+        vec.pop_back();
+
+        //step3: fix heap
+        heapify(0);
     }
 
     int top() {
@@ -43,6 +75,14 @@ int main() {
     heap.push(2);
     heap.push(9);
 
-    cout << "top = " << heap.top() << endl; //9
+    // cout << "top = " << heap.top() << endl; //9
+    // heap.pop();
+    // cout << "top = " << heap.top() << endl; //8
+
+    while (!heap.empty()) {
+        cout << "top = " << heap.top() << endl;
+        heap.pop();
+    }
+
     return 0;
 }
