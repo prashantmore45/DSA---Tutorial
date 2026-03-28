@@ -45,7 +45,7 @@ public:
         int idx = HashFunction(key);
 
         Node* newNode = new Node(key, val);
-        Node* head = NULL;
+        Node* head = table[idx];
 
         newNode->next = head;
         head = newNode;
