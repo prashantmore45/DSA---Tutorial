@@ -75,7 +75,7 @@ public:
         }
     }
 
-    void insert(string key, val) {
+    void insert(string key, int val) {
         int idx = HashFunction(key);
 
         Node* newNode = new Node(key, val);
@@ -91,10 +91,48 @@ public:
             rehash(); 
         }
     }
+
+    bool exists(string key) {
+        int idx = HashFunction(key);
+
+        Node* temp = table[idx];
+        while (temp != NULL) {
+            if (temp->key == key) { //EXISTS
+                return true;
+            }
+            temp = temp->next;
+        }
+
+        return false;
+    }
+
+    int search(string key) {
+        int idx = HashFunction(key);
+
+        Node* temp = table[idx];
+        while (temp != NULL) {
+            if (temp->key == key) { //FOUND
+                return temp->val;
+            }
+            temp = temp->next;
+        }
+
+        return -1;
+    }
 };
 
 
 int main() {
     HashTable ht;
+    ht.insert("India", 150);
+    ht.insert("China", 150);
+    ht.insert("US", 50);
+    ht.insert("Nepal", 10);
+    ht.insert("UK", 30);
+
+    if (ht.exists("India")) {
+        cout << "India population : " << ht.search("India") << endl;
+    }
+
     return 0;
 }
