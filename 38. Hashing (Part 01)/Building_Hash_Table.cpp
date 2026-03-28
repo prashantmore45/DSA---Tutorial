@@ -30,10 +30,10 @@ class HashTable {
         int idx = 0;
 
         for (int i=0; i<key.size(); i++) {
-            idx = idx + (key[i]*key[i]) % key.size();
+            idx = idx + (key[i]*key[i]) % totalSize;
         }
 
-        return idx;
+        return idx % totalSize;
     }
 
     void rehash() {
@@ -41,6 +41,7 @@ class HashTable {
         int oldSize = totalSize;
 
         totalSize = 2 * totalSize;
+        currSize = 0;
         table = new Node*[totalSize];
 
         for (int i=0; i<totalSize; i++) {
@@ -78,10 +79,9 @@ public:
         int idx = HashFunction(key);
 
         Node* newNode = new Node(key, val);
-        Node* head = table[idx];
 
-        newNode->next = head;
-        head = newNode;
+        newNode->next = table[idx];
+        table[idx] = newNode;
 
         currSize++;
 
