@@ -13,6 +13,12 @@ public:
         this->val = val;
         next = NULL;
     }
+
+    ~Node() {
+        if (next != NULL) {
+            delete next;
+        }
+    }
 };
 
 class HashTable {
@@ -28,6 +34,33 @@ class HashTable {
         }
 
         return idx;
+    }
+
+    void rehash() {
+        Node** oldTable = table;
+        int oldSize = totalSize;
+
+        totalSize = 2 * totalSize;
+        table = new Node*[totalSize];
+
+        for (int i=0; i<totalSize; i++) {
+            table[i] = NULL;
+        } 
+
+        //copy old values
+        for (int i=0; i<oldSize; i++) {
+            Node* temp = oldTable[i];
+            while (temp != NULL) {
+                insert(temp->key, temp->val);
+                temp = temp->next;
+            }
+
+            if (oldTable[i] != NULL) {
+                delete oldTable[i];
+            }
+        }
+
+        delete[] oldTable;
     }
 
 public:
@@ -51,6 +84,12 @@ public:
         head = newNode;
 
         currSize++;
+
+        double lambda = currSize/(double)totalSize;
+
+        if (lambda > 1) {
+            rehash(); 
+        }
     }
 };
 
