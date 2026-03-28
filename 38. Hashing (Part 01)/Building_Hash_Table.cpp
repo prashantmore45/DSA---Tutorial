@@ -67,6 +67,7 @@ class HashTable {
 public:
     HashTable(int size = 5) {
         this->totalSize = size;
+        currSize = 0;
 
         table = new Node*[totalSize];
 
@@ -119,6 +120,19 @@ public:
 
         return -1;
     }
+
+    void print() {
+
+        for (int i=0; i<totalSize; i++) {
+            cout << "idx" << i << "->";
+            Node* temp = table[i];
+            while (temp != NULL) {
+                cout << "(" << temp->key << "," << temp->val << ") ->";
+                temp = temp->next;
+            }
+            cout << endl;
+        }
+    }
 };
 
 
@@ -130,9 +144,11 @@ int main() {
     ht.insert("Nepal", 10);
     ht.insert("UK", 30);
 
-    if (ht.exists("India")) {
-        cout << "India population : " << ht.search("India") << endl;
-    }
+    // if (ht.exists("India")) {
+    //     cout << "India population : " << ht.search("India") << endl;
+    // }
+
+    ht.print();
 
     return 0;
-}
+} 
