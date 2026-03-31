@@ -25,13 +25,27 @@ public:
         Node* temp = root;
 
         for (int i=0; i<key.length(); i++) {
-            if (temp->children.count(key[i] == 0)) {
+            if (temp->children.count(key[i]) == 0) {
                 temp->children[key[i]] = new Node();  //insert
             }
             temp = temp->children[key[i]];
         }
 
         temp->endOfWord = true;
+    }
+
+    bool search(string key) {
+        Node* temp = root;
+
+        for (int i=0; i<key.size(); i++) {
+            if (temp->children.count(key[i])) {
+                temp = temp->children[key[i]];
+            } else {   
+                return false;
+            }
+        }
+
+        return temp->endOfWord;
     }
 };
 
@@ -43,6 +57,9 @@ int main() {
     for (int i=0; i<words.size(); i++) {
         trie.insert(words[i]);
     }
+
+    cout << trie.search("any") << endl; //1
+    cout << trie.search("ant") << endl; //0
 
     return 0;
 }
