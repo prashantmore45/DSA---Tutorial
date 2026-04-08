@@ -25,6 +25,19 @@ int countWaysMem(int n, vector<int> &dp) {
     return dp[n];
 }
 
+int countWaysTab(int n) {
+    vector<int> dp(n+1, 0);
+
+    dp[0] = 1;
+    dp[1] = 1;
+
+    for (int i=2; i<=n; i++) {
+        dp[i] = dp[i-1] + dp[i-2];
+    }
+
+    return dp[n];
+}
+
 
 int main() {
     int n = 4;
@@ -33,6 +46,8 @@ int main() {
     vector<int> dp(n+1, -1);
     
     cout << countWaysMem(n, dp) << endl;  //5
+
+    cout << countWaysTab(n) << endl; //5
     
     return 0;
 }
