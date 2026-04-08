@@ -26,7 +26,11 @@ int countWaysMem(int n, vector<int> &dp) {
 }
 
 int countWaysTab(int n) {
-    vector<int> dp(n+1, 0);
+
+    if (n == 0 || n == 1) return 1;
+    if (n == 2) return 2;
+
+    vector<int> dp(n+1);
 
     dp[0] = 1;
     dp[1] = 1;
