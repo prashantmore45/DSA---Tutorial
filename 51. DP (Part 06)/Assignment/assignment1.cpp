@@ -29,7 +29,7 @@ int tribonacciMem(int n, vector<int> &dp) {
         return dp[n];
     }
 
-    return tribonacciMem(n-1, dp) + tribonacciMem(n-2, dp) + tribonacciMem(n-3, dp);
+    return dp[n] = tribonacciMem(n-1, dp) + tribonacciMem(n-2, dp) + tribonacciMem(n-3, dp);
 } 
 
 //Tabulation DP
