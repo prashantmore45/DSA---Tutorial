@@ -76,12 +76,42 @@ bool canPartitionMemo(vector<int>& nums) {
     return solveMemo(nums, 0, target, dp);
 }
 
+// TABULATION (Bottom-Up DP)
+
+bool canPartitionTab(vector<int>& nums) {
+    int sum = accumulate(nums.begin(), nums.end(), 0);
+
+    if (sum % 2 != 0) return false;
+
+    int target = sum / 2;
+    int n = nums.size();
+
+    vector<vector<bool>> dp(n + 1, vector<bool>(target + 1, false));
+
+    // Base case
+    for (int i = 0; i <= n; i++)
+        dp[i][0] = true;
+
+    for (int i = 1; i <= n; i++) {
+        for (int t = 1; t <= target; t++) {
+            if (nums[i - 1] <= t) {
+                dp[i][t] = dp[i - 1][t - nums[i - 1]] || dp[i - 1][t];
+            } else {
+                dp[i][t] = dp[i - 1][t];
+            }
+        }
+    }
+
+    return dp[n][target];
+}
+
 
 int main() {
     vector<int> nums = {1, 5, 11, 5};
 
     cout << "Recursion: " << (canPartitionRec(nums) ? "True" : "False") << endl;
     cout << "Memoization: " << (canPartitionMemo(nums) ? "True" : "False") << endl;
+    cout << "Tabulation: " << (canPartitionTab(nums) ? "True" : "False") << endl;
 
     return 0;
 }
