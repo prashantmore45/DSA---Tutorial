@@ -45,11 +45,43 @@ bool canPartitionRec(vector<int>& nums) {
     return solveRec(nums, 0, sum / 2);
 }
 
+// MEMOIZATION (Top-Down DP)
+
+bool solveMemo(vector<int>& nums, int i, int target, vector<vector<int>>& dp) {
+    if (target == 0) return true;
+    if (i >= nums.size()) return false;
+
+    if (dp[i][target] != -1)
+        return dp[i][target];
+
+    bool take = false;
+    if (nums[i] <= target)
+        take = solveMemo(nums, i + 1, target - nums[i], dp);
+
+    bool skip = solveMemo(nums, i + 1, target, dp);
+
+    return dp[i][target] = take || skip;
+}
+
+bool canPartitionMemo(vector<int>& nums) {
+    int sum = accumulate(nums.begin(), nums.end(), 0);
+
+    if (sum % 2 != 0) return false;
+
+    int target = sum / 2;
+    int n = nums.size();
+
+    vector<vector<int>> dp(n, vector<int>(target + 1, -1));
+
+    return solveMemo(nums, 0, target, dp);
+}
+
 
 int main() {
     vector<int> nums = {1, 5, 11, 5};
 
     cout << "Recursion: " << (canPartitionRec(nums) ? "True" : "False") << endl;
+    cout << "Memoization: " << (canPartitionMemo(nums) ? "True" : "False") << endl;
 
     return 0;
 }
