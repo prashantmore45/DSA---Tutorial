@@ -41,6 +41,27 @@ int solveRec(int i, int prev, vector<vector<int>>& c) {
     return max(take, notTake);
 }
 
+//Memoization
+
+int solveMem(int i, int prev, vector<vector<int>>& c, vector<vector<int>>& dp) {
+    if (i == c.size()) return 0;
+
+    if (dp[i][prev+1] != -1) return dp[i][prev+1];
+
+    int notTake = solveMem(i+1, prev, c, dp);
+
+    int take = 0;
+    if (prev == -1 ||
+        (c[i][0] >= c[prev][0] &&
+         c[i][1] >= c[prev][1] &&
+         c[i][2] >= c[prev][2])) {
+
+        take = c[i][2] + solveMem(i+1, i, c, dp);
+    }
+
+    return dp[i][prev+1] = max(take, notTake);
+}
+
 
 int main() {
     vector<vector<int>> cuboids = {
@@ -57,6 +78,10 @@ int main() {
 
     // Recursion
     cout << solveRec(0, -1, cuboids) << endl;
+
+    // Memoization
+    vector<vector<int>> dp(n, vector<int>(n+1, -1));
+    cout << solveMem(0, -1, cuboids, dp) << endl;
 
     return 0;
 }
