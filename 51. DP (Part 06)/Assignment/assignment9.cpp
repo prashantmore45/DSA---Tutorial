@@ -63,6 +63,37 @@ int solveMem(int i, int prev, vector<vector<int>>& c, vector<vector<int>>& dp) {
 }
 
 
+//Tabulation
+
+int maxHeight(vector<vector<int>>& cuboids) {
+    // normalize
+    for (auto &c : cuboids) {
+        sort(c.begin(), c.end());
+    }
+
+    // sort all cuboids
+    sort(cuboids.begin(), cuboids.end());
+
+    int n = cuboids.size();
+    vector<int> dp(n);
+
+    for (int i = 0; i < n; i++) {
+        dp[i] = cuboids[i][2];
+
+        for (int j = 0; j < i; j++) {
+            if (cuboids[j][0] <= cuboids[i][0] &&
+                cuboids[j][1] <= cuboids[i][1] &&
+                cuboids[j][2] <= cuboids[i][2]) {
+
+                dp[i] = max(dp[i], dp[j] + cuboids[i][2]);
+            }
+        }
+    }
+
+    return *max_element(dp.begin(), dp.end());
+}
+
+
 int main() {
     vector<vector<int>> cuboids = {
         {50,45,20},
@@ -82,6 +113,9 @@ int main() {
     // Memoization
     vector<vector<int>> dp(n, vector<int>(n+1, -1));
     cout << solveMem(0, -1, cuboids, dp) << endl;
+
+    // Tabulation
+    cout << maxHeight(cuboids) << endl;
 
     return 0;
 }
